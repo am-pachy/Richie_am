@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuova Pagina Web</title>
+    
+    <!-- Link al font Open Sans Condensed e uno per scrittura antica -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    
+    <!-- Stile CSS -->
+    <style>
+        /* Stile per h4 e h5 in italiano e inglese */
+        .lang-it_IT h4, .lang-it_IT h5, .lang-en_US h4, .lang-en_US h5 {
+            font-family: 'Open Sans Condensed', sans-serif;
+        }
+
+        /* Stile per il menu di navigazione in italiano e inglese */
+        .lang-it_IT .nav-menu-main > ul > li > a, .lang-en_US .nav-menu-main > ul > li > a {
+            font-size: 25px;
+        }
+
+        /* Stile del menu principale */
+        .nav-menu-main > ul {
+            box-shadow: 0px 5px 30px 0px #000000a6;
+            border-radius: 5px;
+            background-color: #fff;
+            list-style: none;
+            padding: 10px;
+            margin: 0;
+        }
+
+        /* Stile per i link di navigazione */
+        .nav-menu-main > ul > li {
+            display: inline-block;
+            margin-right: 15px;
+        }
+
+        .nav-menu-main > ul > li > a {
+            text-decoration: none;
+            color: #000;
+            padding: 5px 10px;
+        }
+
+        .nav-menu-main > ul > li > a:hover {
+            color: #007BFF;
+        }
+
+        /* Stile per l'immagine di sfondo */
+        .full-screen-bg {
+            background-image: url('file:///Users/anna.marchetto/Desktop/The%20World%20of%20Poetry%20Education%20Presentation%20In%20Brown%20Watercolor%20Style%20.jpg'); /* Modifica il nome o percorso come necessario */
+            background-size: cover;
+            background-position: center;
+            height: 100vh; /* Altezza pari all'80% della finestra */
+            color: #fff; /* Colore del testo, per renderlo leggibile su uno sfondo scuro */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative; /* Per posizionare il testo "Benvenuti" */
+        }
+
+        /* Stile per il testo "Benvenuti" */
+        .welcome-text {
+            font-family: 'Dancing Script', cursive;
+            font-size: 4rem;
+            color: #ffffff;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+            position: absolute;
+            top: 30%;
+            right: 20%;
+        }
+
+        /* Stile per l'immagine dell'autobiografia */
+        #autobiografia-img {
+            display: none; /* Inizialmente nascosto */
+            max-width: 100%;
+            height: auto;
+            margin-top: 20px;
+        }
+
+        /* Stile per il pulsante indietro */
+        .back-button {
+            position: absolute;
+            bottom: 20px; /* Distanza dal fondo */
+            left: 20px; /* Distanza da sinistra */
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 15px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .back-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body class="lang-it_IT">
+    
+    <!-- Menu di navigazione -->
+    <nav class="nav-menu-main">
+        <ul>
+            <li><a href="#ChiSono" onclick="showImage()">Chi Sono?</a></li>
+            <li><a href="file:///Users/anna.marchetto/Desktop/New%20Sito%20Richie/Libri%20adulti.html">I miei Libri</a></li>
+            <li><a href="file:///Users/anna.marchetto/Desktop/New%20Sito%20Richie/Pagina%20principale%20Richie.html">Richie Gullivard</a></li>
+            <li><a href="#Contatti">Contatti</a></li>
+        </ul>
+    </nav>
+
+    <!-- Contenuto principale -->
+    <main>
+        <!-- Sezione Chi Sono -->
+        <section id="ChiSono" class="full-screen-bg">
+        </section>
+
+        <section id="I miei Libretti"></section>
+        
+        <section id="RichieGullivard"></section>
+        
+        <section id="Contatti"></section>
+    </main>
+
+    <script>
+        function showImage() {
+            const img = document.getElementById('autobiografia-img');
+            img.style.display = 'block'; // Mostra l'immagine
+        }
+
+        function goBack() {
+            window.history.back(); // Torna alla pagina precedente
+        }
+    </script>
+    
+</body>
+</html>

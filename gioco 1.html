@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alla Scoperta di Alpalandia</title>
+    <style>
+        /* Stili base per la pagina */
+        body {
+            font-family: Arial, sans-serif;
+            background: #e0f7fa;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        /* Container principale del gioco */
+        .game-container {
+            width: 90%;
+            max-width: 600px;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            position: relative;
+        }
+
+        /* Opzioni di scelta */
+        .option {
+            display: inline-block;
+            margin: 10px 0;
+            padding: 10px 20px;
+            background-color: #4caf50;
+            color: white;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        .option:hover {
+            background-color: #388e3c;
+        }
+
+        /* Stili per le scene */
+        .scene {
+            display: none; /* Nasconde tutte le scene di default */
+        }
+
+        /* Mostra la scena attiva */
+        input[type="radio"] {
+            display: none;
+        }
+
+        input[type="radio"]:checked + .scene {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="game-container">
+        <!-- Scena 1: Inizio -->
+        <input type="radio" id="scene1" name="scene" checked>
+        <div class="scene">
+            <h2>Benvenuto ad Alpalandia!</h2>
+            <p>Ti trovi all'ingresso di Alpalandia, una terra misteriosa abitata da animali fantastici. Dove vuoi andare?</p>
+            <a href="#scene2" class="option" onclick="document.getElementById('scene2').checked = true;">Vai nella Foresta Magica</a>
+            <a href="#scene3" class="option" onclick="document.getElementById('scene3').checked = true;">Esplora la Città degli Alpaca</a>
+        </div>
+
+        <!-- Scena 2: Foresta Magica -->
+        <input type="radio" id="scene2" name="scene">
+        <div class="scene">
+            <h2>La Foresta Magica</h2>
+            <p>Ti addentri nella foresta e senti un leggero fruscio tra gli alberi. Davanti a te appare un alpaca luccicante. Cosa vuoi fare?</p>
+            <a href="#scene4" class="option" onclick="document.getElementById('scene4').checked = true;">Parla con l'Alpaca</a>
+            <a href="#scene1" class="option" onclick="document.getElementById('scene1').checked = true;">Torna all'ingresso</a>
+        </div>
+
+        <!-- Scena 3: Città degli Alpaca -->
+        <input type="radio" id="scene3" name="scene">
+        <div class="scene">
+            <h2>La Città degli Alpaca</h2>
+            <p>Arrivi in una città colorata popolata da alpaca di ogni tipo. Un negozio di souvenir attira la tua attenzione.</p>
+            <a href="#scene5" class="option" onclick="document.getElementById('scene5').checked = true;">Entra nel negozio</a>
+            <a href="#scene1" class="option" onclick="document.getElementById('scene1').checked = true;">Torna all'ingresso</a>
+        </div>
+
+        <!-- Scena 4: Incontro con l'Alpaca nella Foresta -->
+        <input type="radio" id="scene4" name="scene">
+        <div class="scene">
+            <h2>Incontro con l'Alpaca</h2>
+            <p>L'alpaca ti saluta gentilmente e ti offre un dono magico. Ricevi un amuleto della fortuna!</p>
+            <a href="#scene2" class="option" onclick="document.getElementById('scene2').checked = true;">Continua a esplorare la foresta</a>
+            <a href="#scene1" class="option" onclick="document.getElementById('scene1').checked = true;">Torna all'ingresso</a>
+        </div>
+
+        <!-- Scena 5: Negozio di Souvenir nella Città -->
+        <input type="radio" id="scene5" name="scene">
+        <div class="scene">
+            <h2>Negozio di Souvenir</h2>
+            <p>Nel negozio trovi piccoli amuleti, cappellini da alpaca e tante altre curiosità. Cosa vuoi fare?</p>
+            <a href="#scene3" class="option" onclick="document.getElementById('scene3').checked = true;">Esplora la città</a>
+            <a href="#scene1" class="option" onclick="document.getElementById('scene1').checked = true;">Torna all'ingresso</a>
+        </div>
+    </div>
+
+</body>
+</html>

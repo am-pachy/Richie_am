@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz sul Mondo degli Alpaca</title>
+    <style>
+        /* Stili di base */
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #d3f8e2, #e4c1f9, #ff99c8); /* Sfondo colorato */
+            background-size: 300% 300%;
+            animation: gradientAnimation 10s ease infinite;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            color: #333;
+        }
+
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Contenitore principale del quiz */
+        .quiz-container {
+            background-color: #fff;
+            padding: 20px;
+            width: 90%;
+            max-width: 500px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        /* Stile delle domande */
+        .question {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+
+        /* Stile delle opzioni */
+        .option {
+            display: block;
+            padding: 10px;
+            margin: 8px 0;
+            background-color: #f9f9f9;
+            color: #333;
+            border: 2px solid transparent;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        /* Effetti al passaggio del mouse */
+        .option:hover {
+            background-color: #e0f7fa;
+        }
+
+        /* Feedback di risposta */
+        .correct {
+            border-color: #4caf50;
+            color: #4caf50;
+            font-weight: bold;
+        }
+
+        .incorrect {
+            border-color: #f44336;
+            color: #f44336;
+            font-weight: bold;
+        }
+
+        /* Nasconde tutte le domande tranne quella attiva */
+        .question-container {
+            display: none;
+        }
+
+        input[type="radio"]:checked + .question-container {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+<div class="quiz-container">
+    <!-- Domanda 1 -->
+    <input type="radio" id="q1" name="question" checked>
+    <div class="question-container">
+        <div class="question">Qual è l'habitat naturale degli alpaca?</div>
+        <label class="option incorrect" onclick="document.getElementById('q2').checked = true;">Foresta tropicale</label>
+        <label class="option correct" onclick="document.getElementById('q2').checked = true;">Ande del Sud America</label>
+        <label class="option incorrect" onclick="document.getElementById('q2').checked = true;">Deserto del Sahara</label>
+    </div>
+
+    <!-- Domanda 2 -->
+    <input type="radio" id="q2" name="question">
+    <div class="question-container">
+        <div class="question">Cosa amano fare gli alpaca per rilassarsi?</div>
+        <label class="option incorrect" onclick="document.getElementById('q3').checked = true;">Nuotare nei laghi</label>
+        <label class="option correct" onclick="document.getElementById('q3').checked = true;">Pisolare al sole</label>
+        <label class="option incorrect" onclick="document.getElementById('q3').checked = true;">Scalare le montagne</label>
+    </div>
+
+    <!-- Domanda 3 -->
+    <input type="radio" id="q3" name="question">
+    <div class="question-container">
+        <div class="question">Qual è il principale utilizzo della lana di alpaca?</div>
+        <label class="option correct" onclick="alert('Complimenti! Hai finito il quiz!');">Produrre capi di abbigliamento</label>
+        <label class="option inc

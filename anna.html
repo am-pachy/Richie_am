@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuova Pagina Web</title>
+    
+    <!-- Link al font Open Sans Condensed -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&display=swap" rel="stylesheet">
+    
+    <!-- Stile CSS -->
+    <style>
+        /* Stile per h4 e h5 in italiano e inglese */
+        .lang-it_IT h4, .lang-it_IT h5, .lang-en_US h4, .lang-en_US h5 {
+            font-family: 'Open Sans Condensed', sans-serif;
+        }
+
+        /* Stile per il menu di navigazione in italiano e inglese */
+        .lang-it_IT .nav-menu-main > ul > li > a, .lang-en_US .nav-menu-main > ul > li > a {
+            font-size: 25px;
+        }
+
+        /* Stile del menu principale */
+        .nav-menu-main > ul {
+            box-shadow: 0px 5px 30px 0px #000000a6;
+            border-radius: 5px;
+            background-color: #fff;
+            list-style: none;
+            padding: 10px;
+            margin: 0;
+        }
+
+        /* Stile per i link di navigazione */
+        .nav-menu-main > ul > li {
+            display: inline-block;
+            margin-right: 15px;
+        }
+
+        .nav-menu-main > ul > li > a {
+            text-decoration: none;
+            color: #000;
+            padding: 5px 10px;
+        }
+
+        .nav-menu-main > ul > li > a:hover {
+            color: #007BFF;
+        }
+
+        /* Stile per l'immagine di sfondo */
+        .full-screen-bg {
+            background-image: url('file:///Users/anna.marchetto/Desktop/anna.png'); /* Modifica il nome o percorso come necessario */
+            background-size: cover; /* Rende l'immagine di sfondo a copertura */
+            background-position: center;
+            height: 100vh; /* Altezza pari all'altezza della finestra */
+            color: #fff; /* Colore del testo, per renderlo leggibile su uno sfondo scuro */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        /* Stile per l'immagine dell'autobiografia */
+        #autobiografia-img {
+            display: none; /* Inizialmente nascosto */
+            max-width: 80%; /* Limita la larghezza massima dell'immagine al 80% */
+            height: auto; /* Mantiene le proporzioni */
+            margin-top: 20px; /* Margine superiore */
+        }
+    </style>
+</head>
+<body class="lang-it_IT">
+    
+    <!-- Menu di navigazione -->
+    <nav class="nav-menu-main">
+        <ul>
+            <li><a href="#ChiSono" onclick="showImage()">Chi Sono?</a></li>
+            <li><a href="file:///Users/anna.marchetto/Desktop/New%20Sito%20Richie/Libri%20adulti.html">I miei Libretti</a></li>
+            <li><a href="file:///Users/anna.marchetto/Desktop/New%20Sito%20Richie/Pagina%20principale%20Richie.html">Richie Gullivard</a></li>
+            <li><a href="#Contatti">Contatti</a></li>
+        </ul>
+    </nav>
+
+    <!-- Contenuto principale -->
+    <main>
+        <!-- Sezione Chi Sono -->
+        <section id="ChiSono" class="full-screen-bg">
+            <h1>Chi Sono?</h1>
+            <p>Breve descrizione di te stesso.</p>
+            <img id="autobiografia-img" src="file:///Users/anna.marchetto/Desktop/Autobiografia%20Anna%20(1).png" alt="Autobiografia Anna">
+        </section>
+
+        <section id="I miei Libretti"></section>
+        
+        <section id="RichieGullivard"></section>
+        
+        <section id="Contatti"></section>
+    </main>
+
+    <script>
+        function showImage() {
+            const img = document.getElementById('autobiografia-img');
+            img.style.display = 'block'; // Mostra l'immagine
+        }
+    </script>
+    
+</body>
+</html>

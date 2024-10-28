@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Benvenuto alla Mia Pagina</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Attraction&display=swap" rel="stylesheet">
+
+    <style>
+        /* Stili di base per la pagina */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: #bde0fe;
+            height: 100vh;
+            overflow: hidden;
+            color: #333;
+            position: relative;
+            background-image: url('https://img.freepik.com/foto-gratuito/un-modello-con-nuvole-su-sfondo-blu_1268-31771.jpg?t=st=1729970293~exp=1729973893~hmac=fe4f979c7166e04440ae7eae670460a709a1cb572236f5aaeb899a462cf259dc&w=2000');
+            background-size: cover;
+            background-position: center;
+            animation: moveBackground 30s linear infinite; /* Animazione per lo sfondo */
+        }
+
+        @keyframes moveBackground {
+            0% { background-position: 0 0; }
+            100% { background-position: 100% 0; }
+        }
+
+        /* Hexagon container for "Richie Gullivard" */
+        .hexagon-container {
+            width: 300px;
+            height: 174px;
+            background-color: #ff6f61;
+            position: relative;
+            color: white;
+            font-family: 'Attraction', sans-serif;
+            font-size: 40pt;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;
+        }
+
+        .hexagon-container:before,
+        .hexagon-container:after {
+            content: "";
+            position: absolute;
+            width: 0;
+            border-left: 150px solid transparent;
+            border-right: 150px solid transparent;
+        }
+
+        .hexagon-container:before {
+            bottom: 100%;
+            border-bottom: 87px solid #ff6f61;
+        }
+
+        .hexagon-container:after {
+            top: 100%;
+            border-top: 87px solid #ff6f61;
+        }
+
+        /* Contenuto principale */
+        .content {
+            max-width: 800px;
+            padding: 20px;
+            text-align: center;
+            background-color: #fff7f0;
+            border-radius: 15px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Stile dei pulsanti */
+        .button {
+            position: absolute;
+            padding: 25px 40px; /* Pulsanti più grandi */
+            background-color: #ffd700; /* Colore di sfondo giallo */
+            color: #00f; /* Testo blu elettrico */
+            text-decoration: none;
+            border-radius: 50%; /* Forma rotonda per i pulsanti */
+            border: 2px solid black; /* Contorno nero */
+            font-weight: bold;
+            font-size: 1.5em; /* Aumentata la dimensione del testo */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
+        }
+        .btn1 {
+            transform: translate(-240px, 120px); /* Centra i pulsanti */
+        }
+        .btn2 {
+            transform: translate(40px, 120px); /* Centra i pulsanti */
+        }
+
+        /* Posizionamento dei pulsanti in cerchio */
+        .button:nth-of-type(1) {
+            top: 50%;
+            left: 50%;
+            animation: rotate1 5s linear; /* Rotazione continua */
+            transform-origin: -200px; /* Aumentato per una rotazione più ampia */
+        }
+
+        .button:nth-of-type(2) {
+            top: 50%;
+            left: 50%;
+            animation: rotate2 6s linear; /* Rotazione continua */
+            transform-origin: -220px; /* Aumentato per una rotazione più ampia */
+        }
+
+        /* Animazioni per i pulsanti */
+        @keyframes rotate1 {
+            from { transform: rotate(0deg) translate(-200px) rotate(0deg); }
+            to { transform: rotate(360deg) translate(-200px) rotate(-360deg); }
+        }
+
+        @keyframes rotate2 {
+            from { transform: rotate(0deg) translate(-220px) rotate(0deg); }
+            to { transform: rotate(360deg) translate(-220px) rotate(-360deg); }
+        }
+
+        /* Interruzione della rotazione al passaggio del mouse */
+        .button:hover {
+            animation-play-state: paused; /* Ferma l'animazione al passaggio del mouse */
+            background-color: #ff6f61; /* Cambia colore al passaggio del mouse */
+            color: #fff; /* Colore del testo */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Effetto scintillio con ::before e ::after */
+        .button::before, .button::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background-color: #ffd700;
+            border-radius: 50%;
+            box-shadow: 0 0 8px rgba(255, 255, 0, 0.7), 0 0 12px rgba(255, 255, 0, 0.5);
+            animation: sparkle 1.5s infinite alternate;
+        }
+
+        .button::before {
+            top: -10px;
+            left: -10px;
+            animation-delay: 0.2s;
+        }
+
+        .button::after {
+            bottom: -10px;
+            right: -10px;
+            animation-delay: 0.4s;
+        }
+
+        @keyframes sparkle {
+            0% { opacity: 0.8; transform: scale(1); }
+            100% { opacity: 0; transform: scale(1.5); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hexagonal text container -->
+    <div class="hexagon-container">Richie Gullivard</div>
+
+    <!-- Contenuto principale -->
+    <div class="content">
+        <h2>Ma ciao! 👋</h2>
+        <p>Siamo Anna e Richie, benvenuto/a nel nostro mondo! <br><br> Qui troverai avventure, immagini colorate e tante sorprese. 😊</p>
+        
+        <!-- Pulsanti con effetto rotazione e scintille -->
+        <a href="file:///Users/anna.marchetto/Desktop/New%20Sito%20Richie/giochirichie.html" class="button btn1">Gioca con noi!</a>
+        <a href="file:///Users/anna.marchetto/Desktop/New%20Sito%20Richie/libri%20Richie.html" class="button btn2">I miei libri</a>
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gioco di Memoria con Carte</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+        }
+
+        .game-board {
+            display: grid;
+            grid-template-columns: repeat(4, 100px);
+            gap: 10px;
+        }
+
+        .card {
+            width: 100px;
+            height: 100px;
+            position: relative;
+            perspective: 1000px; /* Per l'effetto 3D */
+            cursor: pointer;
+        }
+
+        .card-inner {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+
+        /* Effetto di "flip" quando si passa sopra la carta */
+        .card:hover .card-inner {
+            transform: rotateY(180deg);
+        }
+
+        /* Lato posteriore della carta */
+        .card-back, .card-front {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 10px;
+        }
+
+        .card-back {
+            background-color: #4CAF50;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+        }
+
+        /* Lato anteriore della carta (coperto) */
+        .card-front {
+            background-color: #333;
+            transform: rotateY(180deg); /* Nasconde il contenuto */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="game-board">
+    <!-- Ogni carta avrà un contenuto numerico diverso -->
+    <div class="card">
+        <div class="card-inner">
+            <div class="card-front">?</div>
+            <div class="card-back">1</div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-inner">
+            <div class="card-front">?</div>
+            <div class="card-back">2</div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-inner">
+            <div class="card-front">?</div>
+            <div class="card-back">1</div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-inner">
+            <div class="card-front">?</div>
+            <div class="card-back">2</div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-inner">
+            <div class="card-front">?</div>
+            <div class="card-back">3</div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-inner">
+            <div class="card-front">?</div>
+            <div class="card-back">4</div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-inner">
+            <div class="card-front">?</div>
+            <div class="card-back">3</div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-inner">
+            <div class="card-front">?</div>
+            <div class="card-back">4</div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

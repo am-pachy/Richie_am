@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Libri in Vendita</title>
+    <style>
+        /* Stile della pagina */
+        body {
+            font-family: Bubble letter;
+            display: flex;
+            justify-content: center;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        
+        /* Stile del contenitore principale */
+        .container {
+            width: 90%;
+            max-width: 800px;
+            margin: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #007BFF;
+        }
+
+        /* Stile per i libri */
+        .book {
+            display: flex;
+            align-items: center;
+            background-color: #fff;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            margin: 20px 0;
+            padding: 15px;
+        }
+
+        .book img {
+            width: 120px;
+            height: auto;
+            border-radius: 5px;
+            margin-right: 20px;
+        }
+
+        .book-title {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Richie Gullivard</h1>
+
+        <!-- Primo libro -->
+        <div class="book">
+            <img src="file:///Users/anna.marchetto/Desktop/rovigno.png" alt="Copertina Una vacanza a Rovigno">
+            <div class="book-details">
+                <p class="book-title">Una vacanza a Rovigno</p>
+            </div>
+        </div>
+
+        <!-- Secondo libro -->
+        <div class="book">
+            <img src="file:///Users/anna.marchetto/Desktop/grand_hotel.jpg" alt="Copertina Richie e Topy al Grand Hotel">
+            <div class="book-details">
+                <p class="book-title">Richie e Topy al Grand Hotel</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

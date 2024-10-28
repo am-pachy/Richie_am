@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Benvenuto ai Giochi!</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Attraction&display=swap" rel="stylesheet">
+
+    <style>
+        /* Stile di base per la pagina */
+        body {
+            font-family: 'Attraction', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: #e0f7fa;
+            height: 100vh;
+            color: #333;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            color: #00796b;
+            text-shadow: 2px 2px #ffe082;
+        }
+
+        p {
+            font-size: 1.5em;
+            margin-bottom: 40px;
+            color: #555;
+        }
+
+        /* Stile per i pulsanti */
+        .button {
+            display: inline-block;
+            padding: 20px 30px;
+            margin: 10px;
+            background-color: #ffab00; /* Colore di sfondo giallo */
+            color: #fff; /* Testo bianco */
+            text-decoration: none;
+            border-radius: 10px; /* Angoli arrotondati */
+            font-size: 1.2em;
+            transition: transform 0.2s, background-color 0.2s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .button:hover {
+            transform: scale(1.1); /* Ingrandisce il pulsante al passaggio del mouse */
+            background-color: #ff8f00; /* Colore di sfondo scuro */
+        }
+
+        /* Animazione per i pulsanti */
+        @keyframes sparkle {
+            0% { opacity: 0.8; transform: scale(1); }
+            100% { opacity: 0; transform: scale(1.2); }
+        }
+
+        .sparkle {
+            position: relative;
+        }
+
+        .sparkle::before, .sparkle::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background-color: #ffd700;
+            border-radius: 50%;
+            box-shadow: 0 0 8px rgba(255, 255, 0, 0.7);
+            animation: sparkle 1.5s infinite alternate;
+        }
+
+        .sparkle::before {
+            top: -10px;
+            left: -10px;
+            animation-delay: 0.2s;
+        }
+
+        .sparkle::after {
+            bottom: -10px;
+            right: -10px;
+            animation-delay: 0.4s;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Benvenuto ai Giochi!</h1>
+    <p>Sei pronto a divertirti? Scegli uno dei giochi qui sotto!</p>
+
+    <a href="file:///Users/anna.marchetto/Desktop/New%20Sito%20Richie/gioco%201.html" class="button sparkle">Gioco 1</a>
+    <a href="file:///Users/anna.marchetto/Desktop/New%20Sito%20Richie/gioco%202.html" class="button sparkle">Gioco 2</a>
+    <a href="file:///Users/anna.marchetto/Desktop/New%20Sito%20Richie/gioco%203.html" class="button sparkle">Gioco 3</a>
+
+</body>
+</html>
