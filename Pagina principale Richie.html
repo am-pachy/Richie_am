@@ -1,238 +1,252 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Benvenuto alla Mia Pagina</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Benvenuto alla Mia Pagina</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Attraction&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Attraction&display=swap" rel="stylesheet">
 
-    <style>
-        <script>
-document.addEventListener('DOMContentLoaded', () => {
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-image: url('https://img.freepik.com/foto-gratuito/un-modello-con-nuvole-su-sfondo-blu_1268-31771.jpg');
+      background-size: cover;
+      background-position: center;
+      animation: moveBackground 30s linear infinite;
+      color: #333;
 
-    const buttons = document.querySelectorAll('.button');
-
-    function spawnPawprintsNear(x, y, count = 3) {
-        for (let i = 0; i < count; i++) {
-            const paw = document.createElement('div');
-            paw.className = 'pawprint';
-
-            // Offset casuale attorno al click
-            const dx = (Math.random() * 34) - 17;
-            const dy = (Math.random() * 26) - 13;
-
-            paw.style.left = (x + dx) + 'px';
-            paw.style.top  = (y + dy) + 'px';
-
-            // Rotazione casuale
-            const rot = (Math.random() * 60) - 30;
-            paw.style.setProperty('--rot', rot + 'deg');
-
-            // Dimensione leggermente variabile
-            const scale = 0.85 + Math.random() * 0.35;
-            paw.style.width  = (26 * scale) + 'px';
-            paw.style.height = (26 * scale) + 'px';
-
-            document.body.appendChild(paw);
-
-            // Rimozione dopo animazione
-            setTimeout(() => {
-                paw.remove();
-            }, 800);
-        }
+      /* 🐴 cursore zoccolo */
+      cursor: url("zoccolo.png"), auto;
     }
 
-    buttons.forEach(button => {
+    @keyframes moveBackground {
+      0% { background-position: 0 0; }
+      100% { background-position: 100% 0; }
+    }
 
-        button.addEventListener('click', (e) => {
+    /* ESAGONO */
+    .hexagon-container {
+      width: 300px;
+      height: 174px;
+      background-color: #ff6f61;
+      position: relative;
+      color: white;
+      font-family: 'Attraction', sans-serif;
+      font-size: 40pt;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      text-shadow: -2px -2px 0 #000, 2px -2px 0 #000,
+                   -2px 2px 0 #000, 2px 2px 0 #000;
 
-            // Effetto "premuto"
-            button.classList.add('pressed');
-            setTimeout(() => {
-                button.classList.remove('pressed');
-            }, 150);
+      /* ✅ più spazio sotto: evita che la punta tocchi la box bianca */
+      margin-bottom: 120px; /* 87px (punta) + margine di sicurezza */
+      z-index: 2;
+    }
 
-            // Coordinate click (mouse / touch)
-            const x = e.clientX ?? (e.touches && e.touches[0]?.clientX);
-            const y = e.clientY ?? (e.touches && e.touches[0]?.clientY);
+    .hexagon-container::before,
+    .hexagon-container::after {
+      content: "";
+      position: absolute;
+      width: 0;
+      border-left: 150px solid transparent;
+      border-right: 150px solid transparent;
+    }
 
-            if (typeof x === 'number' && typeof y === 'number') {
-                spawnPawprintsNear(x, y, 3);
-            }
-        });
+    .hexagon-container::before {
+      bottom: 100%;
+      border-bottom: 87px solid #ff6f61;
+    }
 
-        // Sicurezza: reset stato se esci col mouse
-        button.addEventListener('mouseleave', () => {
-            button.classList.remove('pressed');
-        });
+    .hexagon-container::after {
+      top: 100%;
+      border-top: 87px solid #ff6f61;
+    }
 
-    });
+    /* CONTENUTO */
+    .content {
+      max-width: 800px;
+      padding: 25px;
+      text-align: center;
+      background-color: #fff7f0;
+      border-radius: 15px;
+      margin-bottom: 30px;
+      position: relative;
+      z-index: 1;
+    }
 
-});
-</script>
+    /* CONTENITORE PULSANTI */
+    .buttons-container {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 10px;
+    }
 
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            background-image: url('https://img.freepik.com/foto-gratuito/un-modello-con-nuvole-su-sfondo-blu_1268-31771.jpg');
-            background-size: cover;
-            background-position: center;
-            animation: moveBackground 30s linear infinite;
-            color: #333;
-
-            /* 🐴 cursore zoccolo */
-            cursor: url("zoccolo.png"), auto;
-        }
-
-        @keyframes moveBackground {
-            0% { background-position: 0 0; }
-            100% { background-position: 100% 0; }
-        }
-
-        /* ESAGONO */
-        .hexagon-container {
-            width: 300px;
-            height: 174px;
-            background-color: #ff6f61;
-            position: relative;
-            color: white;
-            font-family: 'Attraction', sans-serif;
-            font-size: 40pt;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            text-shadow: -2px -2px 0 #000, 2px -2px 0 #000,
-                         -2px 2px 0 #000, 2px 2px 0 #000;
-            margin-bottom: 30px;
-        }
-
-        .hexagon-container::before,
-        .hexagon-container::after {
-            content: "";
-            position: absolute;
-            width: 0;
-            border-left: 150px solid transparent;
-            border-right: 150px solid transparent;
-        }
-
-        .hexagon-container::before {
-            bottom: 100%;
-            border-bottom: 87px solid #ff6f61;
-        }
-
-        .hexagon-container::after {
-            top: 100%;
-            border-top: 87px solid #ff6f61;
-        }
-
-        /* CONTENUTO */
-        .content {
-            max-width: 800px;
-            padding: 25px;
-            text-align: center;
-            background-color: #fff7f0;
-            border-radius: 15px;
-            margin-bottom: 30px;
-        }
-
-        /* CONTENITORE PULSANTI */
-        .buttons-container {
-            display: flex;
-            gap: 30px;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        /* PULSANTI STATICI */
-.button {
-    padding: 18px 32px;
-    min-width: 190px;
-    background-color: #ffd700;        /* giallo */
-    color: #0000ff;
-    text-decoration: none;
-    border-radius: 999px;             /* 🔵 forma ovale */
-    border: 2px solid black;
-    font-weight: bold;
-    font-size: 1.2em;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.25);
-    transition: 
+    /* PULSANTI OVALI */
+    .button {
+      position: relative;           /* ✅ necessario per le stelline */
+      padding: 18px 32px;
+      min-width: 190px;
+      background-color: #ffd700;    /* giallo */
+      color: #0000ff;
+      text-decoration: none;
+      border-radius: 999px;         /* ovale */
+      border: 2px solid black;
+      font-weight: bold;
+      font-size: 1.2em;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.25);
+      transition:
         background-color 0.25s ease,
         transform 0.2s ease,
         box-shadow 0.25s ease;
-    cursor: inherit; /* mantiene il cursore zoccolo */
-}
-        }
+      cursor: inherit;
+    }
 
-        .button:hover {
-            background-color: #ff6f61;
-            color: white;
-            transform: scale(1.08);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.4);
-        }
+    /* ✅ Hover: zoom + ocra (non grigio) */
+    .button:hover {
+      background-color: #d2b55b; /* ocra */
+      color: #000;
+      transform: scale(1.08);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.35);
+    }
 
-        /* SCINTILLE */
-        .button::before,
-        .button::after {
-            content: '';
-            position: absolute;
-            width: 6px;
-            height: 6px;
-            background-color: #ffd700;
-            border-radius: 50%;
-            box-shadow: 0 0 8px rgba(255, 255, 0, 0.7);
-            animation: sparkle 1.5s infinite alternate;
-        }
+    /* Effetto "premuto" (compatibile con hover) */
+    .button.pressed {
+      transform: scale(0.98);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    }
 
-        .button::before {
-            top: -10px;
-            left: -10px;
-        }
+    /* STELLINE */
+    .button::before,
+    .button::after {
+      content: '';
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      background-color: #ffd700;
+      border-radius: 50%;
+      box-shadow: 0 0 8px rgba(255, 255, 0, 0.7);
+      animation: sparkle 1.5s infinite alternate;
+      pointer-events: none;
+    }
 
-        .button::after {
-            bottom: -10px;
-            right: -10px;
-        }
+    .button::before {
+      top: -10px;
+      left: -10px;
+    }
 
-        @keyframes sparkle {
-            0% { opacity: 0.8; transform: scale(1); }
-            100% { opacity: 0; transform: scale(1.5); }
-        }
-    </style>
+    .button::after {
+      bottom: -10px;
+      right: -10px;
+    }
+
+    @keyframes sparkle {
+      0% { opacity: 0.8; transform: scale(1); }
+      100% { opacity: 0; transform: scale(1.5); }
+    }
+
+    /* 🐾 impronte (necessario per lo script) */
+    .pawprint {
+      position: fixed;
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(0.9) rotate(0deg);
+      animation: pawPop 700ms ease-out forwards;
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cg fill='%23333333'%3E%3Ccircle cx='18' cy='18' r='6'/%3E%3Ccircle cx='32' cy='14' r='6'/%3E%3Ccircle cx='46' cy='18' r='6'/%3E%3Ccircle cx='14' cy='34' r='6'/%3E%3Cpath d='M32 30c-10 0-18 8-18 16 0 7 6 12 18 12s18-5 18-12c0-8-8-16-18-16z'/%3E%3C/g%3E%3C/svg%3E");
+    }
+
+    @keyframes pawPop {
+      0%   { opacity: 0; transform: translate(-50%, -50%) scale(0.7) rotate(var(--rot)); }
+      15%  { opacity: 0.9; }
+      100% { opacity: 0; transform: translate(-50%, calc(-50% - 18px)) scale(1.05) rotate(var(--rot)); }
+    }
+  </style>
 </head>
 
 <body>
+  <div class="hexagon-container">Richie Gullivard</div>
 
-    <div class="hexagon-container">Richie Gullivard</div>
+  <div class="content">
+    <h2>Ma ciao! 👋</h2>
+    <p>
+      Siamo Anna e Richie, benvenuto/a nel nostro mondo! <br><br>
+      Qui troverai avventure, immagini colorate e tante sorprese 😊
+    </p>
+  </div>
 
-    <div class="content">
-        <h2>Ma ciao! 👋</h2>
-        <p>
-            Siamo Anna e Richie, benvenuto/a nel nostro mondo! <br><br>
-            Qui troverai avventure, immagini colorate e tante sorprese 😊
-        </p>
-    </div>
+  <div class="buttons-container">
+    <a href="conosci-richie.html" class="button">Conosci Richie</a>
+    <a href="avventure.html" class="button">Scopri le avventure</a>
+    <a href="eventi.html" class="button">Eventi</a>
+  </div>
 
-    <!-- PULSANTI STATICI -->
-    <div class="buttons-container">
-        <a href="conosci-richie.html" class="button">Conosci Richie</a>
-        <a href="avventure.html" class="button">Scopri le avventure</a>
-        <a href="eventi.html" class="button">Eventi</a>
-    </div>
+  <!-- ✅ Script nel posto corretto (fuori da <style>) -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const buttons = document.querySelectorAll('.button');
 
+      function spawnPawprintsNear(x, y, count = 3) {
+        for (let i = 0; i < count; i++) {
+          const paw = document.createElement('div');
+          paw.className = 'pawprint';
+
+          const dx = (Math.random() * 34) - 17;
+          const dy = (Math.random() * 26) - 13;
+
+          paw.style.left = (x + dx) + 'px';
+          paw.style.top  = (y + dy) + 'px';
+
+          const rot = (Math.random() * 60) - 30;
+          paw.style.setProperty('--rot', rot + 'deg');
+
+          const scale = 0.85 + Math.random() * 0.35;
+          paw.style.width  = (26 * scale) + 'px';
+          paw.style.height = (26 * scale) + 'px';
+
+          document.body.appendChild(paw);
+          setTimeout(() => paw.remove(), 800);
+        }
+      }
+
+      buttons.forEach(button => {
+        button.addEventListener('click', (e) => {
+          button.classList.add('pressed');
+          setTimeout(() => button.classList.remove('pressed'), 150);
+
+          const x = e.clientX ?? (e.touches && e.touches[0]?.clientX);
+          const y = e.clientY ?? (e.touches && e.touches[0]?.clientY);
+
+          if (typeof x === 'number' && typeof y === 'number') {
+            spawnPawprintsNear(x, y, 3);
+          }
+        });
+
+        button.addEventListener('mouseleave', () => {
+          button.classList.remove('pressed');
+        });
+      });
+    });
+  </script>
 </body>
 </html>
