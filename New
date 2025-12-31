@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Benvenuto alla Mia Pagina</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Attraction&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: #bde0fe;
+            height: 100vh;
+            overflow: hidden;
+            color: #333;
+            position: relative;
+            background-image: url('https://img.freepik.com/foto-gratuito/un-modello-con-nuvole-su-sfondo-blu_1268-31771.jpg');
+            background-size: cover;
+            background-position: center;
+            animation: moveBackground 30s linear infinite;
+        }
+
+        @keyframes moveBackground {
+            0% { background-position: 0 0; }
+            100% { background-position: 100% 0; }
+        }
+
+        /* ESAGONO */
+        .hexagon-container {
+            width: 300px;
+            height: 174px;
+            background-color: #ff6f61;
+            position: relative;
+            color: white;
+            font-family: 'Attraction', sans-serif;
+            font-size: 40pt;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            text-shadow: -2px -2px 0 #000, 2px -2px 0 #000,
+                         -2px 2px 0 #000, 2px 2px 0 #000;
+        }
+
+        .hexagon-container:before,
+        .hexagon-container:after {
+            content: "";
+            position: absolute;
+            width: 0;
+            border-left: 150px solid transparent;
+            border-right: 150px solid transparent;
+        }
+
+        .hexagon-container:before {
+            bottom: 100%;
+            border-bottom: 87px solid #ff6f61;
+        }
+
+        .hexagon-container:after {
+            top: 100%;
+            border-top: 87px solid #ff6f61;
+        }
+
+        /* CONTENUTO */
+        .content {
+            max-width: 800px;
+            padding: 20px;
+            text-align: center;
+            background-color: #fff7f0;
+            border-radius: 15px;
+            position: relative;
+            z-index: 1;
+            margin-top: 20px;
+        }
+
+        /* PULSANTI */
+        .button {
+            position: absolute;
+            padding: 25px 40px;
+            background-color: #ffd700;
+            color: #0000ff;
+            text-decoration: none;
+            border-radius: 50%;
+            border: 2px solid black;
+            font-weight: bold;
+            font-size: 1.3em;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
+        }
+
+        /* POSIZIONAMENTO E ROTAZIONE */
+        .button:nth-of-type(1) {
+            top: 50%;
+            left: 50%;
+            animation: rotate1 6s linear infinite;
+            transform-origin: -200px;
+        }
+
+        .button:nth-of-type(2) {
+            top: 50%;
+            left: 50%;
+            animation: rotate2 7s linear infinite;
+            transform-origin: -220px;
+        }
+
+        .button:nth-of-type(3) {
+            top: 50%;
+            left: 50%;
+            animation: rotate3 8s linear infinite;
+            transform-origin: -240px;
+        }
+
+        @keyframes rotate1 {
+            from { transform: rotate(0deg) translate(-200px) rotate(0deg); }
+            to { transform: rotate(360deg) translate(-200px) rotate(-360deg); }
+        }
+
+        @keyframes rotate2 {
+            from { transform: rotate(0deg) translate(-220px) rotate(0deg); }
+            to { transform: rotate(360deg) translate(-220px) rotate(-360deg); }
+        }
+
+        @keyframes rotate3 {
+            from { transform: rotate(0deg) translate(-240px) rotate(0deg); }
+            to { transform: rotate(360deg) translate(-240px) rotate(-360deg); }
+        }
+
+        /* HOVER */
+        .button:hover {
+            animation-play-state: paused;
+            background-color: #ff6f61;
+            color: white;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+        }
+
+        /* SCINTILLE */
+        .button::before,
+        .button::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background-color: #ffd700;
+            border-radius: 50%;
+            box-shadow: 0 0 8px rgba(255, 255, 0, 0.7),
+                        0 0 12px rgba(255, 255, 0, 0.5);
+            animation: sparkle 1.5s infinite alternate;
+        }
+
+        .button::before {
+            top: -10px;
+            left: -10px;
+        }
+
+        .button::after {
+            bottom: -10px;
+            right: -10px;
+        }
+
+        @keyframes sparkle {
+            0% { opacity: 0.8; transform: scale(1); }
+            100% { opacity: 0; transform: scale(1.5); }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="hexagon-container">Richie Gullivard</div>
+
+    <div class="content">
+        <h2>Ma ciao! 👋</h2>
+        <p>
+            Siamo Anna e Richie, benvenuto/a nel nostro mondo! <br><br>
+            Qui troverai avventure, immagini colorate e tante sorprese 😊
+        </p>
+    </div>
+
+    <!-- PULSANTI -->
+    <a href="conosci-richie.html" class="button">Conosci Richie</a>
+    <a href="avventure.html" class="button">Scopri le avventure</a>
+    <a href="eventi.html" class="button">Eventi</a>
+
+</body>
+</html>
