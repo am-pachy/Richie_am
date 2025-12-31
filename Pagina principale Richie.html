@@ -10,6 +10,70 @@
     <link href="https://fonts.googleapis.com/css2?family=Attraction&display=swap" rel="stylesheet">
 
     <style>
+        <script>
+document.addEventListener('DOMContentLoaded', () => {
+
+    const buttons = document.querySelectorAll('.button');
+
+    function spawnPawprintsNear(x, y, count = 3) {
+        for (let i = 0; i < count; i++) {
+            const paw = document.createElement('div');
+            paw.className = 'pawprint';
+
+            // Offset casuale attorno al click
+            const dx = (Math.random() * 34) - 17;
+            const dy = (Math.random() * 26) - 13;
+
+            paw.style.left = (x + dx) + 'px';
+            paw.style.top  = (y + dy) + 'px';
+
+            // Rotazione casuale
+            const rot = (Math.random() * 60) - 30;
+            paw.style.setProperty('--rot', rot + 'deg');
+
+            // Dimensione leggermente variabile
+            const scale = 0.85 + Math.random() * 0.35;
+            paw.style.width  = (26 * scale) + 'px';
+            paw.style.height = (26 * scale) + 'px';
+
+            document.body.appendChild(paw);
+
+            // Rimozione dopo animazione
+            setTimeout(() => {
+                paw.remove();
+            }, 800);
+        }
+    }
+
+    buttons.forEach(button => {
+
+        button.addEventListener('click', (e) => {
+
+            // Effetto "premuto"
+            button.classList.add('pressed');
+            setTimeout(() => {
+                button.classList.remove('pressed');
+            }, 150);
+
+            // Coordinate click (mouse / touch)
+            const x = e.clientX ?? (e.touches && e.touches[0]?.clientX);
+            const y = e.clientY ?? (e.touches && e.touches[0]?.clientY);
+
+            if (typeof x === 'number' && typeof y === 'number') {
+                spawnPawprintsNear(x, y, 3);
+            }
+        });
+
+        // Sicurezza: reset stato se esci col mouse
+        button.addEventListener('mouseleave', () => {
+            button.classList.remove('pressed');
+        });
+
+    });
+
+});
+</script>
+
         body {
             font-family: Arial, sans-serif;
             margin: 0;
