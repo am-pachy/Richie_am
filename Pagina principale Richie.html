@@ -14,19 +14,19 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            background-color: #bde0fe;
-            height: 100vh;
-            overflow: hidden;
-            color: #333;
-            position: relative;
             background-image: url('https://img.freepik.com/foto-gratuito/un-modello-con-nuvole-su-sfondo-blu_1268-31771.jpg');
             background-size: cover;
             background-position: center;
             animation: moveBackground 30s linear infinite;
+            color: #333;
+
+            /* 🐴 cursore zoccolo */
+            cursor: url("zoccolo.png"), auto;
         }
 
         @keyframes moveBackground {
@@ -50,10 +50,11 @@
             text-align: center;
             text-shadow: -2px -2px 0 #000, 2px -2px 0 #000,
                          -2px 2px 0 #000, 2px 2px 0 #000;
+            margin-bottom: 30px;
         }
 
-        .hexagon-container:before,
-        .hexagon-container:after {
+        .hexagon-container::before,
+        .hexagon-container::after {
             content: "";
             position: absolute;
             width: 0;
@@ -61,12 +62,12 @@
             border-right: 150px solid transparent;
         }
 
-        .hexagon-container:before {
+        .hexagon-container::before {
             bottom: 100%;
             border-bottom: 87px solid #ff6f61;
         }
 
-        .hexagon-container:after {
+        .hexagon-container::after {
             top: 100%;
             border-top: 87px solid #ff6f61;
         }
@@ -74,66 +75,46 @@
         /* CONTENUTO */
         .content {
             max-width: 800px;
-            padding: 20px;
+            padding: 25px;
             text-align: center;
             background-color: #fff7f0;
             border-radius: 15px;
-            position: relative;
-            z-index: 1;
-            margin-top: 20px;
+            margin-bottom: 30px;
         }
 
-        /* PULSANTI */
+        /* CONTENITORE PULSANTI */
+        .buttons-container {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        /* PULSANTI STATICI */
         .button {
-            position: absolute;
-            padding: 25px 40px;
+            padding: 40px;
+            min-width: 190px;
+            min-height: 190px;
             background-color: #ffd700;
             color: #0000ff;
             text-decoration: none;
             border-radius: 50%;
             border: 2px solid black;
             font-weight: bold;
-            font-size: 1.3em;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            transition: box-shadow 0.3s ease, transform 0.3s ease;
+            font-size: 1.4em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.25);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        /* POSIZIONAMENTO E ROTAZIONE */
-        .button:nth-of-type(1) {
-    animation: rotate1 14s linear infinite;
-}
-
-.button:nth-of-type(2) {
-    animation: rotate2 18s linear infinite;
-}
-
-.button:nth-of-type(3) {
-    animation: rotate3 22s linear infinite;
-}
-
-        }
-
-        @keyframes rotate1 {
-            from { transform: rotate(0deg) translate(-200px) rotate(0deg); }
-            to { transform: rotate(360deg) translate(-200px) rotate(-360deg); }
-        }
-
-        @keyframes rotate2 {
-            from { transform: rotate(0deg) translate(-220px) rotate(0deg); }
-            to { transform: rotate(360deg) translate(-220px) rotate(-360deg); }
-        }
-
-        @keyframes rotate3 {
-            from { transform: rotate(0deg) translate(-240px) rotate(0deg); }
-            to { transform: rotate(360deg) translate(-240px) rotate(-360deg); }
-        }
-
-        /* HOVER */
         .button:hover {
-            animation-play-state: paused;
             background-color: #ff6f61;
             color: white;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+            transform: scale(1.08);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.4);
         }
 
         /* SCINTILLE */
@@ -145,8 +126,7 @@
             height: 6px;
             background-color: #ffd700;
             border-radius: 50%;
-            box-shadow: 0 0 8px rgba(255, 255, 0, 0.7),
-                        0 0 12px rgba(255, 255, 0, 0.5);
+            box-shadow: 0 0 8px rgba(255, 255, 0, 0.7);
             animation: sparkle 1.5s infinite alternate;
         }
 
@@ -179,10 +159,12 @@
         </p>
     </div>
 
-    <!-- PULSANTI -->
-    <a href="conosci-richie.html" class="button">Conosci Richie</a>
-    <a href="avventure.html" class="button">Scopri le avventure</a>
-    <a href="eventi.html" class="button">Eventi</a>
+    <!-- PULSANTI STATICI -->
+    <div class="buttons-container">
+        <a href="conosci-richie.html" class="button">Conosci Richie</a>
+        <a href="avventure.html" class="button">Scopri le avventure</a>
+        <a href="eventi.html" class="button">Eventi</a>
+    </div>
 
 </body>
 </html>
